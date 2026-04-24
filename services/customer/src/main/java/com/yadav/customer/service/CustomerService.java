@@ -53,9 +53,17 @@ public class CustomerService {
                 .collect(Collectors.toList());
     }
 
+    public Boolean existsById(String id){
+        return customerRepository.findById(id).isPresent();
+    }
+
     public CustomerResponse getCustomerById(String id) {
         var customer = customerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Customer not found with id: " + id));
         return customerMapper.fromCustomer(customer);
+    }
+
+    public void deleteCustomer(String customerId){
+        customerRepository.deleteById(customerId);
     }
 }

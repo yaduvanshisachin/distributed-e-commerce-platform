@@ -37,6 +37,13 @@ public class CustomerController {
         return ResponseEntity.ok(customers);
     }
 
+    @GetMapping("/exits/{customer-id}")
+    public ResponseEntity<Boolean> existsById(
+            @PathVariable("customer-id") String customerId
+    ){
+        return ResponseEntity.ok(customerService.existsById(customerId));
+    }
+
     @GetMapping("/{customer-id}")
     public ResponseEntity<CustomerResponse> getCustomerById(
             @PathVariable("customer-id") String customerId
@@ -45,4 +52,11 @@ public class CustomerController {
         return ResponseEntity.ok(customer);
     }
 
+    @DeleteMapping("{customer-id}")
+    public ResponseEntity<Void> delete(
+            @PathVariable("customer-id") String customerId
+    ){
+        customerService.deleteCustomer(customerId);
+        return ResponseEntity.accepted().build();
+    }
 }

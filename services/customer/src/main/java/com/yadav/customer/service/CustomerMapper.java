@@ -3,7 +3,9 @@ package com.yadav.customer.service;
 import com.yadav.customer.dto.CustomerRequest;
 import com.yadav.customer.dto.CustomerResponse;
 import com.yadav.customer.entity.Customer;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerMapper {
 
     public Customer toCustomer(CustomerRequest request) {

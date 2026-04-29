@@ -1,4 +1,4 @@
-package com.yadav.product;
+package com.yadav.product.dto;
 
 public record ProductPurchaseResponse() {
 }

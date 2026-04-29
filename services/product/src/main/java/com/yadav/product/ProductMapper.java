@@ -1,8 +1,9 @@
 package com.yadav.product;
 
+import com.yadav.product.dto.ProductRequest;
+import com.yadav.product.dto.ProductResponse;
 import com.yadav.product.entity.Category;
 import com.yadav.product.entity.Product;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,8 +23,17 @@ public class ProductMapper {
                 .build();
     }
 
-    public ProductResponse fromProduct(Product product){
+    public ProductResponse toProductResponse(Product product){
         return ProductResponse.builder()
+                .id(product.getId())
+                .name(product.getName())
+                .description(product.getDescription())
+                .availableQuantity(product.getAvailableQuantity())
+                .price(product.getPrice())
+                .categoryId(product.getId())
+                .categoryName(product.getName())
+                .categoryDescription(product.getCategory().getDescription())
                 .build();
+
     }
 }

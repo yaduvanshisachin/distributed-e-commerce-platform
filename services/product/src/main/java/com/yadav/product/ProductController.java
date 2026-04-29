@@ -1,5 +1,9 @@
 package com.yadav.product;
 
+import com.yadav.product.dto.ProductPurchaseRequest;
+import com.yadav.product.dto.ProductPurchaseResponse;
+import com.yadav.product.dto.ProductRequest;
+import com.yadav.product.dto.ProductResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

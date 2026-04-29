@@ -1,4 +1,4 @@
-package com.yadav.product;
+package com.yadav.product.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

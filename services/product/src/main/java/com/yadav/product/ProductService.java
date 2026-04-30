@@ -39,11 +39,31 @@ public class ProductService {
 
         var purchasedProducts = new ArrayList<ProductPurchaseResponse>();
 
+        for(int i=0; i<storedRequest.size(); i++){
+            var product = storedProducts.get(i);
+            var productRequest = storedRequest.get(i);
 
-        return null;
+            if(product.getAvailableQuantity() < productRequest.quantity()){
+                throw new ProductPurchaseException(
+                        "insufficient stock for product with id: " + product.getId()
+                );
+            }
+
+            //deduct stock
+            product.setAvailableQuantity(
+                    product.getAvailableQuantity() - productRequest.quantity()
+            );
+
+            //save updated product
+            repository.save(product);
+
+            purchasedProducts.add(mapper.toProductPurchaseResponse(product, productRequest.quantity()));
+        }
+
+        return purchasedProducts;
     }
 
-    public ProductResponse findBId(Long productId) {
+    public ProductResponse findById(Long productId) {
         return repository.findById(productId)
                 .map(mapper::toProductResponse)
                 .orElseThrow(() -> new EntityNotFoundException("Product not found with Id :: " + productId));

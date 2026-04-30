@@ -1,26 +1,25 @@
 package com.yadav.product.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.*;
+import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String name;
     private String description;
-    private BigDecimal price;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
-    private Category category;
+    private List<Product> products;
 }

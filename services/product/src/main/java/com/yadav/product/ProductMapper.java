@@ -1,5 +1,6 @@
 package com.yadav.product;
 
+import com.yadav.product.dto.ProductPurchaseResponse;
 import com.yadav.product.dto.ProductRequest;
 import com.yadav.product.dto.ProductResponse;
 import com.yadav.product.entity.Category;
@@ -18,7 +19,7 @@ public class ProductMapper {
                 .availableQuantity(request.getAvailableQuantity())
                 .category(
                         Category.builder()
-                                .Id(request.getCategoryId())
+                                .id(request.getCategoryId())
                                 .build())
                 .build();
     }
@@ -35,5 +36,15 @@ public class ProductMapper {
                 .categoryDescription(product.getCategory().getDescription())
                 .build();
 
+    }
+
+    public ProductPurchaseResponse toProductPurchaseResponse(Product product, double quantity){
+        return ProductPurchaseResponse.builder()
+                .productId(product.getId())
+                .name(product.getName())
+                .description(product.getDescription())
+                .price(product.getPrice())
+                .quantity(quantity)
+                .build();
     }
 }

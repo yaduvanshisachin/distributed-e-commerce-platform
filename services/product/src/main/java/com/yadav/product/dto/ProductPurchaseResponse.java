@@ -1,4 +1,19 @@
 package com.yadav.product.dto;
 
-public record ProductPurchaseResponse() {
+import lombok.Builder;
+
+import java.math.BigDecimal;
+
+@Builder
+public record ProductPurchaseResponse(
+        Long productId,
+
+        String name,
+
+        String description,
+
+        BigDecimal price,
+
+        double quantity
+) {
 }

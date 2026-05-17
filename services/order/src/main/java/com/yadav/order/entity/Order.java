@@ -1,5 +1,6 @@
 package com.yadav.order.entity;
 
+import com.yadav.order.orderLine.OrderLine;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;

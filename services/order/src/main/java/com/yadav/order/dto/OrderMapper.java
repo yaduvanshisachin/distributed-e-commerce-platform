@@ -9,7 +9,10 @@ public class OrderMapper {
     public Order toOrder(OrderRequest request){
         Order.builder()
                 .id(request.getId())
-
+                .customerId(request.getCustomerId())
+                .paymentMethod(request.getPaymentMethod())
+                .reference(request.getReference())
+                .totalAmount(request.getAmount())
                 .build();
     }
 }

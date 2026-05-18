@@ -3,6 +3,7 @@ package com.yadav.order;
 import com.yadav.order.customer.CustomerClient;
 import com.yadav.order.dto.OrderMapper;
 import com.yadav.order.dto.OrderRequest;
+import com.yadav.order.dto.OrderResponse;
 import com.yadav.order.exception.BusinessException;
 import com.yadav.order.kafka.OrderConfirmation;
 import com.yadav.order.kafka.OrderProducer;
@@ -12,6 +13,9 @@ import com.yadav.order.product.ProductClient;
 import com.yadav.order.product.PurchaseRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -64,5 +68,18 @@ public class OrderService {
         );
 
         return order.getId();
+    }
+
+    public List<OrderResponse> findAll(){
+        return repository.findAll()
+                .stream()
+                .map(mapper::toOrderResponse)
+                .collect(Collectors.toList());
+    }
+
+    public OrderResponse findById(Integer id){
+        return repository.findById(id)
+                .map(mapper::toOrderResponse)
+                .orElseThrow(() -> new BusinessException("No order found with provided id"));
     }
 }

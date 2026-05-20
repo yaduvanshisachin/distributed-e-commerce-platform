@@ -32,6 +32,6 @@ public class OrderController {
     public ResponseEntity<OrderResponse> findById(
             @PathVariable("order-id") Integer orderId
     ){
-        return ResponseEntity.ok(service.finById(orderId));
+        return ResponseEntity.ok(service.findById(orderId));
     }
 }

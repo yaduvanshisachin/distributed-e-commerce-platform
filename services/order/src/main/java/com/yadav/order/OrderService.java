@@ -9,6 +9,8 @@ import com.yadav.order.kafka.OrderConfirmation;
 import com.yadav.order.kafka.OrderProducer;
 import com.yadav.order.orderLine.OrderLineRequest;
 import com.yadav.order.orderLine.OrderLineService;
+import com.yadav.order.payment.PaymentClient;
+import com.yadav.order.payment.PaymentRequest;
 import com.yadav.order.product.ProductClient;
 import com.yadav.order.product.PurchaseRequest;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,7 @@ public class OrderService {
     private final OrderMapper mapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentClient paymentClient;
 
     public Integer createOrder(OrderRequest request){
          //check the customer --> customer-ms (open Feign)
@@ -55,6 +58,14 @@ public class OrderService {
         //persist order lines
 
         //todo start payment process
+        var paymentRequest = new PaymentRequest(
+                request.getAmount(),
+                request.getPaymentMethod(),
+                order.getId(),
+                order.getReference(),
+                customer
+        );
+        paymentClient.requestOrderPayment(paymentRequest);
 
         //send the order confirmation --> notification-ms(kafka)
         orderProducer.sendOrderConfirmation(

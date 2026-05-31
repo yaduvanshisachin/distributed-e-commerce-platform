@@ -19,6 +19,6 @@ public class Notification {
     private String id;
     private NotificationType type;
     private OrderConfirmation orderConfirmation;
-    private LocalDateTime NotificationDate;
+    private LocalDateTime notificationDate;
     private PaymentConfirmation paymentConfirmation;
 }

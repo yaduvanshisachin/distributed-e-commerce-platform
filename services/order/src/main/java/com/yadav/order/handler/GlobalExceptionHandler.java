@@ -1,8 +1,8 @@
 package com.yadav.order.handler;
 
 import com.yadav.order.exception.BusinessException;
-import com.yadav.product.exception.ProductPurchaseException;
-import com.yadav.product.handler.ErrorResponse;
+//import com.yadav.order.exception.ProductPurchaseException;
+import com.yadav.order.handler.ErrorResponse;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

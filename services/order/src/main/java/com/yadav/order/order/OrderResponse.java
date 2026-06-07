@@ -1,6 +1,4 @@
-package com.yadav.order.dto;
-
-import com.yadav.order.entity.PaymentMethod;
+package com.yadav.order.order;
 
 import java.math.BigDecimal;
 

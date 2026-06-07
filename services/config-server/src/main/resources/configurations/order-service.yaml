@@ -7,6 +7,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+    database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 server:
@@ -14,6 +15,6 @@ server:
 
 application:
   config:
-    custormer-url: http://localhost:8222/api/v1/customers
+    customer-url: http://localhost:8222/api/v1/customers
     payment-url: http://localhost:8222/api/v1/payments
     product-url: http://localhost:8222/api/v1/products

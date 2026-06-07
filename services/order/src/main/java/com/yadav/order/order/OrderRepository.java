@@ -1,6 +1,5 @@
-package com.yadav.order;
+package com.yadav.order.order;
 
-import com.yadav.order.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

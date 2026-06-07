@@ -1,7 +1,5 @@
-package com.yadav.order;
+package com.yadav.order.order;
 
-import com.yadav.order.dto.OrderRequest;
-import com.yadav.order.dto.OrderResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

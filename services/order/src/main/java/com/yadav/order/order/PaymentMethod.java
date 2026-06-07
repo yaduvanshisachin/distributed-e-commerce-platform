@@ -1,4 +1,4 @@
-package com.yadav.order.entity;
+package com.yadav.order.order;
 
 public enum PaymentMethod {
     CREDIT_CARD,

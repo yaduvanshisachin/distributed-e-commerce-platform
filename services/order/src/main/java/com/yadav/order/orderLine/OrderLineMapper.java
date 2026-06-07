@@ -1,6 +1,6 @@
 package com.yadav.order.orderLine;
 
-import com.yadav.order.entity.Order;
+import com.yadav.order.order.Order;
 import org.springframework.stereotype.Service;
 
 @Service

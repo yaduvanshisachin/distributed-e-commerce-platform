@@ -1,9 +1,6 @@
-package com.yadav.order;
+package com.yadav.order.order;
 
 import com.yadav.order.customer.CustomerClient;
-import com.yadav.order.dto.OrderMapper;
-import com.yadav.order.dto.OrderRequest;
-import com.yadav.order.dto.OrderResponse;
 import com.yadav.order.exception.BusinessException;
 import com.yadav.order.kafka.OrderConfirmation;
 import com.yadav.order.kafka.OrderProducer;

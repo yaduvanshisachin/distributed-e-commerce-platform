@@ -57,7 +57,7 @@ public class EmailService {
 
             messageHelper.setTo(destinationEmail);
             mailSender.send(mimeMessage);
-            log.info(String.format("INFO - Email successfully sent to %s", destinationEmail, templateName));
+            log.info("INFO - Email successfully sent to {} using template {}", destinationEmail, templateName);
         } catch (MessagingException e) {
             log.warn("WARNING - Can not send email to {}", destinationEmail);
         }

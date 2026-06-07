@@ -1,4 +1,4 @@
-package com.yadav.order.entity;
+package com.yadav.order.order;
 
 import com.yadav.order.orderLine.OrderLine;
 import jakarta.persistence.*;

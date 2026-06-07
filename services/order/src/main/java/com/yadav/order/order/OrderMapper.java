@@ -1,6 +1,5 @@
-package com.yadav.order.dto;
+package com.yadav.order.order;
 
-import com.yadav.order.entity.Order;
 import org.springframework.stereotype.Service;
 
 @Service

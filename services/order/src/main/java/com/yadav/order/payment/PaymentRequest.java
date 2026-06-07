@@ -1,7 +1,7 @@
 package com.yadav.order.payment;
 
 import com.yadav.order.customer.CustomerResponse;
-import com.yadav.order.entity.PaymentMethod;
+import com.yadav.order.order.PaymentMethod;
 
 import java.math.BigDecimal;
 
